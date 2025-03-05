@@ -1,0 +1,11 @@
+<--------------- Template was created by Danil Drozdov 2024--------------->
+
+<<<---- UniRx
+<<<---- UniTask - 2.5.10 (October 3, 2024)
+<<<---- Zenject - 9.1.0 (October 13 2019)
+<<<---- MessagePack - 2.5.187 (October 2024)
+<<<---- DoTweenPro - 1.0.381 (February 4 2024)
+<<<---- Odin Inspector & Serializer - 3.3.1.5 (July 3 2024)
+<<<---- VHierarchy - 2.0.16 (July 2024)
+<<<---- VTabs - 2.0.13 (July 13 2024)
+<<<---- Hot Reload - 1.12.12 (July 2024) 
