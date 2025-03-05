@@ -17,8 +17,18 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: e852d44a878640c468c5c2d0f1e074b0
   m_SerializeEntries:
-  - m_GUID: 081b7cac19b4122479ea5848628bab09
-    m_Address: Assets/_Prefabs/Enemies/Enemy_base.prefab
+  - m_GUID: 06a2fb82ebb7cbb4899fe67382a97d4e
+    m_Address: Assets/_Prefabs/Characters/Enemies/Enemy_RaycastAttack Variant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 69f83c448ce93a148aa13479ee1d6763
+    m_Address: Assets/_Prefabs/Characters/Enemies/Enemy_ProjectileAttack Variant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a8263c7a0eaf4e4aa8eec0871442070
+    m_Address: Assets/_Prefabs/Characters/Enemies/Enemy_CloseAttack Variant.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
