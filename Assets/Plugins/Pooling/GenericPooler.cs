@@ -11,7 +11,7 @@ namespace Pooling
     {
         #region [Fields]
 
-        private readonly Dictionary<AssetReference, GenericPool> PoolerLibrary = new Dictionary<AssetReference, GenericPool>();
+        private readonly Dictionary<object, GenericPool> PoolerLibrary = new Dictionary<object, GenericPool>();
         private readonly Dictionary<int, GenericPool> HashReference = new Dictionary<int, GenericPool>();
         private readonly IObjectsFactory _objectsFactory;
 
@@ -57,8 +57,10 @@ namespace Pooling
         public async UniTask CreatePrefabsPool(AssetReference assetReference, int prefabsCount, Transform poolTrm = null)
         {
             int remainderToSpawn;
+            
+            Debug.Log(assetReference.AssetGUID);
 
-            if (PoolerLibrary.TryGetValue(assetReference, out GenericPool manipulatedPool))
+            if (PoolerLibrary.TryGetValue(assetReference.RuntimeKey, out GenericPool manipulatedPool))
             {
                 remainderToSpawn = prefabsCount - manipulatedPool.TotalElementsCount;
             }
@@ -85,7 +87,7 @@ namespace Pooling
         private async UniTask<T> TakeFromPool<T>(AssetReference assetReference, Transform poolTrm = null) where T : MonoBehaviour, IGenericPoolElement
         {
 
-            if (!PoolerLibrary.TryGetValue(assetReference, out GenericPool manipulatedPool))
+            if (!PoolerLibrary.TryGetValue(assetReference.RuntimeKey, out GenericPool manipulatedPool))
             {
                 manipulatedPool = CreatePool(assetReference, poolTrm);
             }
@@ -109,7 +111,7 @@ namespace Pooling
         {
             GenericPool pool = new GenericPool(prefabAssetReference, poolTrm);
 
-            PoolerLibrary.Add(prefabAssetReference, pool);
+            PoolerLibrary.Add(prefabAssetReference.RuntimeKey, pool);
             HashReference.Add(pool.GetHashCode(), pool);
             return pool;
         }
