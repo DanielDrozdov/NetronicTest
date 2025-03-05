@@ -83,7 +83,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1186757389754025380, guid: 081b7cac19b4122479ea5848628bab09, type: 3}
       propertyPath: m_Name
-      value: Enemy_CloseAttack Variant
+      value: Enemy_CloseAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829915224077546889, guid: 081b7cac19b4122479ea5848628bab09, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3891533317482045690, guid: 081b7cac19b4122479ea5848628bab09, type: 3}
       propertyPath: _attackPossibilityTracker
@@ -113,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a40c95eb264f85a3cce81780c2b2a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackDistance: 0.7
+  _attackDistance: 2
   _attackCooldown: 2
   _selfAttack: {fileID: 388557922501270218}
 --- !u!114 &388557922501270218

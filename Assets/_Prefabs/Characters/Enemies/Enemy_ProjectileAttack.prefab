@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &716828057585795472
+--- !u!1001 &4657197545717248871
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -53,47 +53,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1186757389754025380, guid: 081b7cac19b4122479ea5848628bab09, type: 3}
       propertyPath: m_Name
-      value: Enemy_RaycastAttack Variant
+      value: Enemy_ProjectileAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829915224077546889, guid: 081b7cac19b4122479ea5848628bab09, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3891533317482045690, guid: 081b7cac19b4122479ea5848628bab09, type: 3}
       propertyPath: _attackPossibilityTracker
       value: 
-      objectReference: {fileID: 2402923069098905528}
+      objectReference: {fileID: 8076122922196136997}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 081b7cac19b4122479ea5848628bab09, type: 3}
---- !u!1 &598678951728322486 stripped
+--- !u!1 &4692170791761372481 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 125045291239495206, guid: 081b7cac19b4122479ea5848628bab09, type: 3}
-  m_PrefabInstance: {fileID: 716828057585795472}
+  m_PrefabInstance: {fileID: 4657197545717248871}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2402923069098905528
+--- !u!114 &5651661405653415971
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 598678951728322486}
+  m_GameObject: {fileID: 4692170791761372481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718dc21335904edba7de0c7647c3fd98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 20
+  _projectileAssetRef:
+    m_AssetGUID: 8bf738bc57d9e8047b4efa17caf24d05
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+--- !u!114 &8076122922196136997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4692170791761372481}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82a40c95eb264f85a3cce81780c2b2a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackDistance: 10
-  _attackCooldown: 7
-  _selfAttack: {fileID: 4702566138390323406}
---- !u!114 &4702566138390323406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 598678951728322486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 013abc97b5d64f248c296e18e53b0ea5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 25
-  _playerLayerMask:
-    serializedVersion: 2
-    m_Bits: 128
+  _attackDistance: 20
+  _attackCooldown: 5
+  _selfAttack: {fileID: 5651661405653415971}

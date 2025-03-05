@@ -19,17 +19,23 @@ namespace Core.Characters.Enemies.Attack
         private Transform _attackBoxTrm;
         
         private IPlayerHitReceiver _playerHitReceiver;
+        private Collider[] _results;
 
         [Inject]
         private void Construct(IPlayerHitReceiver playerHitReceiver)
         {
             _playerHitReceiver = playerHitReceiver;
         }
-        
+
+        private void Awake()
+        {
+            _results = new Collider[1];
+        }
+
         public override void Attack(Vector3 playerPos)
         {
             int results = 
-                Physics.OverlapBoxNonAlloc(_attackBoxTrm.position, _attackBoxSize / 2, null, Quaternion.identity, _playerLayerMask);
+                Physics.OverlapBoxNonAlloc(_attackBoxTrm.position, _attackBoxSize / 2, _results, Quaternion.identity, _playerLayerMask);
             
             if (results == 1)
             {

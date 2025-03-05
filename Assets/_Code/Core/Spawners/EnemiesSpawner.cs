@@ -18,7 +18,7 @@ namespace Core.Spawners
         private float _spawnCooldown;
         
         [SerializeField, FoldoutGroup("Components")]
-        private Transform _spawnPoint;
+        private Transform[] _spawnPoints;
         
         [SerializeField, FoldoutGroup("Components"), Space]
         private AssetReference[] _enemiesReferences;
@@ -50,15 +50,22 @@ namespace Core.Spawners
         private async UniTaskVoid SpawnEnemy()
         {
             _remainingTimeToSpawnNextEnemy = _spawnCooldown;
+            Vector3 randomSpawnPoint = GetRandomSpawnPoint();
             AssetReference enemyRef = GetRandomEnemyRef();
             Enemy enemy = await _poolsProvider.GetObjFromPool<Enemy>(enemyRef);
-            enemy.transform.position = _spawnPoint.position;
+            enemy.Place(randomSpawnPoint);
         }
 
         private AssetReference GetRandomEnemyRef()
         {
             int randomIndex = Random.Range(0, _enemiesReferences.Length);
             return _enemiesReferences[randomIndex];
+        }
+
+        private Vector3 GetRandomSpawnPoint()
+        {
+            int randomIndex = Random.Range(0, _spawnPoints.Length);
+            return _spawnPoints[randomIndex].position;
         }
     }
 }
