@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Core.Characters.Player;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utility;
 using Zenject;
@@ -7,11 +8,39 @@ namespace Infrastructure.ZenjectBindings
 {
     public class SceneServicesBindings : MonoInstaller
     {
+        [SerializeField]
+        private PlayerPositionProvider _playerPositionProvider;
+        
+        [SerializeField]
+        private PlayerHitReceiver _playerHitReceiver;
+        
         public override void InstallBindings()
         {
-            InjectSceneDiContainerInObjectsFactory();
+            BindPlayerPositionProvider();
+            BindPlayerHitReceiver();
             
+            InjectSceneDiContainerInObjectsFactory();
             InjectDependenciesInLevel();
+        }
+
+        private void BindPlayerPositionProvider()
+        {
+            Container
+                .Bind<IPlayerPositionProvider>()
+                .To<PlayerPositionProvider>()
+                .FromInstance(_playerPositionProvider)
+                .AsSingle()
+                .NonLazy();
+        }
+
+        private void BindPlayerHitReceiver()
+        {
+            Container
+                .Bind<IPlayerHitReceiver>()
+                .To<PlayerHitReceiver>()
+                .FromInstance(_playerHitReceiver)
+                .AsSingle()
+                .NonLazy();
         }
 
         private void InjectSceneDiContainerInObjectsFactory()
