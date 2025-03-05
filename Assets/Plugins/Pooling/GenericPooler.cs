@@ -57,8 +57,6 @@ namespace Pooling
         public async UniTask CreatePrefabsPool(AssetReference assetReference, int prefabsCount, Transform poolTrm = null)
         {
             int remainderToSpawn;
-            
-            Debug.Log(assetReference.AssetGUID);
 
             if (PoolerLibrary.TryGetValue(assetReference.RuntimeKey, out GenericPool manipulatedPool))
             {
